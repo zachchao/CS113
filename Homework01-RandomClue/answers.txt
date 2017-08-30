@@ -1,0 +1,9 @@
+Theory 1 - Failed - 94575, Succeeded - 5425
+Theory 2 - Failed - 94438, Succeeded - 5562
+Theory 3 - Failed - 94523, Succeeded - 5477
+
+The difference between theory 1, 2 and 3 is negligible as it is random.
+What is good is that the success tends to be 5%.
+
+With my implementation it is 100% success for all theories.
+This is good because she is batman now.
