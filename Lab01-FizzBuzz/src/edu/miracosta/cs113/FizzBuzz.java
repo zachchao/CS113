@@ -8,10 +8,10 @@ package edu.miracosta.cs113;
  *@version  1.0
  *
  *Algorithm
- *Iterate through 100 with a for loop
- *Catch all that are divisible by both 3 and 5 by testing divisibility by 15
- *Use else if to catch everything which is not divisible by both but may be
- *divisible by just three or five. If it is not divisible print the number itself.
+ * Iterate through 100 with a for loop
+ * Catch all that are divisible by both 3 and 5 by testing divisibility by 15
+ * Use else if to catch everything which is not divisible by both but may be
+ * divisible by just three or five. If it is not divisible print the number itself.
  */
  public class FizzBuzz{
  	/**
