@@ -23,6 +23,10 @@ public class Lab08Driver {
 	private static LinkedQueue<Integer> queue = new LinkedQueue<Integer>();
 	private static Integer[] integers = {-1, 15, 23, 44, 4, 99};
 	
+	/**
+	 * The driver to run the problem listed above
+	 * @param args Command line arguments, none used
+	 */
 	public static void main(String[] args){
 		//Problem 1
 		for (Integer i : integers){
