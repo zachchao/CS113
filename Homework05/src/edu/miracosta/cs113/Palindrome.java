@@ -37,8 +37,29 @@ public class Palindrome {
 		System.out.println("Enter your string and I will tell you if it"
 				+ " is a palindrome");
 		String possiblePalindrome = keyboard.nextLine();
+		System.out.println(palindromeTest(possiblePalindrome));
+		
+		//Test some values and different cases
+		/*
+		String[] testArray = {"a", "racecar", "dad tacocat dad", "mooom", "abba", "imoddomi", "", "not"};
+		for(String s : testArray){
+			System.out.println(palindromeTest(s));
+		}
+		*/
+	}
+	
+	/**
+	 * Tests if the string fed is a palindrome and returns a string to be
+	 * printed to the user
+	 * @param possiblePalindrome The value to be tested
+	 * @return A string which can be outputted to the user to tell them if it is a palindrome
+	 */
+	public static String palindromeTest(String possiblePalindrome){
 		int length = possiblePalindrome.length();
 		String[] palindromeArray = possiblePalindrome.split("");
+		if(length == 0){
+			return "That is a palindrome!";
+		}
 		//Whether it is odd or even add all characters to stack1
 		for (String s : palindromeArray){
 			stack1.push((Character)s.toLowerCase().charAt(0));
@@ -66,9 +87,9 @@ public class Palindrome {
 		//If the two strings are equal then the string was
 		// a palindrome
 		if(stackString1.equals(stackString2)){
-			System.out.println("That is a palindrome!");
+			return "That is a palindrome!";
 		}else{
-			System.out.println("That is not a palindrome.");
+			return "That is not a palindrome.";
 		}
 	}
 }
