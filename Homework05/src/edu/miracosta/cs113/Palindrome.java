@@ -36,7 +36,9 @@ public class Palindrome {
 	public static void main(String[] args){
 		System.out.println("Enter your string and I will tell you if it"
 				+ " is a palindrome");
-		String possiblePalindrome = keyboard.nextLine();
+		//Replaces all spaces with empty string so that it can accept weird palindromes
+		//that are multi word if you take out the spaces
+		String possiblePalindrome = keyboard.nextLine().replace(" ", "");
 		System.out.println(palindromeTest(possiblePalindrome));
 		
 		//Test some values and different cases
