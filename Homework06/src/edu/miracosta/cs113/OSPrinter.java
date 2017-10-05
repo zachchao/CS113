@@ -36,7 +36,6 @@ public class OSPrinter {
 	private LinkedQueue<PrinterJob> lgJobs = new LinkedQueue<PrinterJob>();
 	//The counter to keep track of which job is being ran
 	private int jobCounter = 1;
-	private boolean done;
 	
 	/**
 	 * The constructor, takes in how many printers to use
