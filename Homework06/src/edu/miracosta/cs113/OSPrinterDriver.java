@@ -47,5 +47,7 @@ public class OSPrinterDriver {
 			osPrinter.runJobs();
 		}
 		osPrinter.runUntilDone();
+		
+		System.out.println("All the jobs took " + osPrinter.getMinutes() + " minutes");
 	}
 }

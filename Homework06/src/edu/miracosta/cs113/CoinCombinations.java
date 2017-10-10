@@ -16,7 +16,7 @@ public class CoinCombinations {
 	 * @param args Command Line arguments not used
 	 */
 	public static void main(String[] args){
-		int change = 32;
+		int change = 75;
 		System.out.println(countCombinations(change, 0, 0, 0, 0));
 	}
 	

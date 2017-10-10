@@ -37,6 +37,8 @@ public class OSPrinter {
 	//The counter to keep track of which job is being ran
 	private int jobCounter = 1;
 	
+	private int minutes = 0;
+	
 	/**
 	 * The constructor, takes in how many printers to use
 	 * @param numPrinters The amount of printers to use
@@ -104,6 +106,9 @@ public class OSPrinter {
 			}else{
 				printers[i].print();
 			}
+			
+			//Add to the time
+			minutes += 1;
 		}
 	}
 	
@@ -115,12 +120,24 @@ public class OSPrinter {
 		//while any of the queues still have jobs to print
 		while(smJobs.peek() != null || mdJobs.peek() != null || lgJobs.peek() != null){
 			runJobs();
+			//Add to the time
+			minutes += 1;
 		}
 		//Finish all active jobs within the printers
 		for(int i = 0; i < numPrinters; i++){
 			if(printers[i].getActiveJob() != null){
 				runJobs();
 			}
+			//Add to the time
+			minutes += 1;
 		}
 	}	
+	
+	/**
+	 * Getter for minutes
+	 * @return The minutes it took
+	 */
+	public int getMinutes(){
+		return this.minutes;
+	}
 }
