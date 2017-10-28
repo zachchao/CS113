@@ -24,7 +24,7 @@ public class MorseTree {
 			morseMapping.put(lineRay[1], lineRay[0].charAt(0));
 		}
 		tree = constructTree("", null, null);
-		System.out.println(tree.getLeftSubtree());
+		//System.out.println(tree.getLeftSubtree());
 	}
 	
 	//Construct the tree
@@ -32,28 +32,27 @@ public class MorseTree {
 	//Invoked with the first left value of '*'
 	//Left and right are the left and rights of the tree which are to be set 
 	private BinaryTree<Character> constructTree(String val, BinaryTree<Character> left, BinaryTree<Character> right){
-		System.out.println(val);
+		System.out.println(morseMapping.get(val));
 		Character leftVal = morseMapping.get(val + "*");
 		Character rightVal = morseMapping.get(val + "-");
 		
-		//Stopping case if you are in a leaf and its not the first case
-		if(morseMapping.get(val) == null && val != ""){
-			return new BinaryTree<Character>();
-		}
+		
 		//Stopping case is when you reach a leaf
 		if(leftVal == null && rightVal == null){
 			return new BinaryTree<Character>(morseMapping.get(val), null, null);
 		}
 		//Stopping case if left is leaf but right is not leaf
 		if(leftVal == null){
+			
 			left = new BinaryTree<Character>(null, new BinaryTree<Character>(), new BinaryTree<Character>());
 			right = constructTree(val += "-", new BinaryTree<Character>(), new BinaryTree<Character>());
 			return new BinaryTree<Character>(morseMapping.get(val), left, right);
 		}
 		//Stopping case if right is leaf but left is not leaf
 		if(right == null){
+			System.out.println("asdf");
 			left = constructTree(val += "*", new BinaryTree<Character>(), new BinaryTree<Character>());
-			right = new BinaryTree<Character>(null, new BinaryTree<Character>(), new BinaryTree<Character>());
+			right = new BinaryTree<Character>(null, null, null);
 			return new BinaryTree<Character>(morseMapping.get(val), left, right);
 		}
 		//Else
