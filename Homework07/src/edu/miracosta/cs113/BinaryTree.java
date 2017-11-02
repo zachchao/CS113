@@ -1,5 +1,6 @@
 package edu.miracosta.cs113;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 public class BinaryTree<E> {
@@ -28,15 +29,24 @@ public class BinaryTree<E> {
 	}
 	
 	public BinaryTree<E> getLeftSubtree(){
-		return new BinaryTree(this.root.left);
+		if(root != null && root.left !=null){
+			return new BinaryTree<E>(this.root.left);
+		}
+		return null;
 	}
 	
 	public BinaryTree<E> getRightSubtree(){
-		return new BinaryTree(this.root.right);
+		if(root != null && root.right !=null){
+			return new BinaryTree<E>(this.root.right);
+		}
+		return null;
 	}
 	
 	public E getData(){
-		return this.root.data;
+		if(root != null){
+			return this.root.data;
+		}
+		return null;
 	}
 	
 	public boolean isLeaf(){
@@ -63,12 +73,17 @@ public class BinaryTree<E> {
 	}
 	
 	public BinaryTree<E> readBinaryTree(Scanner scan){
-		return null;
-		
+		String data = scan.next();
+		if(data == null){
+			return null;
+		}
+		BinaryTree<E> leftTree = readBinaryTree(scan);
+		BinaryTree<E> rightTree = readBinaryTree(scan);
+		return new BinaryTree<E>((E) data, leftTree, rightTree);
 	}
 	
 	
-	protected class Node<E>{
+	protected class Node<E> implements Serializable{
 		protected E data;
 		protected Node<E> left;
 		protected Node<E> right;
@@ -80,6 +95,9 @@ public class BinaryTree<E> {
 		}
 		
 		public String toString(){
+			if (data == null){
+				return "null";
+			}
 			return this.data.toString();
 		}
 		
