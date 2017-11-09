@@ -2,8 +2,9 @@ package edu.miracosta.cs113;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.PriorityQueue;
 
-abstract class Heap<E> implements Comparator<E>{
+abstract class Heap<E> extends PriorityQueue<E> implements Comparator<E>{
 	protected ArrayList<E> data = null;
 	protected Comparator<E> comparator = null;
 	
@@ -39,6 +40,49 @@ abstract class Heap<E> implements Comparator<E>{
 			}
 		}
 		return true;
+	}
+	
+	@Override
+	public E poll(){
+		if(isEmpty()){
+			return null;
+		}
+		
+		E result = data.get(0);
+		
+		//Special case of one
+		if(data.size() == 1){
+			data.remove(0);
+			return result;
+		}
+		
+		data.set(0, data.remove(data.size() - 1));
+		
+		int parentPos = 0;
+		
+		while(true){
+			int leftPos = 2 * parentPos + 1;
+			if (leftPos >=  data.size()){
+				break;
+			}
+			
+			int rightPos = leftPos + 1;
+			
+			//Assumes left child is smaller
+			int minPos = leftPos;
+			
+			if(rightPos < data.size() && compare(data.get(leftPos), data.get(rightPos)) > 0){
+				minPos = rightPos;
+			}
+			
+			if(compare(data.get(parentPos), data.get(minPos)) > 0){
+				swap(parentPos, minPos);
+				parentPos = minPos;
+			}else{
+				break;
+			}
+		}
+		return result;
 	}
 	
 	private void swap(int parentPos, int childPos){

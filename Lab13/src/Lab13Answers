@@ -1,0 +1,41 @@
+Lab 13
+
+Self Check 1
+A. ISBN, because its unique
+B. Player's name, because it too is unique
+C. Model Number because it is unique
+D. Course ID because it is a unique identifier
+
+
+Self Check 2
+(this, [1])
+(line, [1,2,3])
+(is, [1,2])
+(first, [1])
+(and, [2])
+(2, [2])
+(is, [1])
+(second, [2])
+(followed, [3])
+(by, [3])
+(the, [3])
+(third, [3])
+
+
+Programming 1
+HashMap<String, Integer> occurences = new HashMap<String, Integer>();
+
+
+Programming 2
+public static void buildWordCounts(Scanner scan){
+	while(scan.hasNextLine()){
+		String[] lineRay = scan.nextLine().toLowerCase().split(" ");
+		for(String s : lineRay){
+			if(occurences.get(s) != null){
+				occurences.put(s, 1 + occurences.get(s));
+			}else{
+				occurences.put(s, 1);
+			}
+		}
+	}
+}

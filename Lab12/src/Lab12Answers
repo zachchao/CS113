@@ -1,0 +1,56 @@
+Lab 12
+
+Self Check 1 -
+Instantiates a set of type String
+adds the value "hello" the set s
+adds the value "bye" the set s
+adds all values of s into s, but because its a set this does nothing but return false
+Instantiates a tree set of type String
+adds the value "123" to the set t
+adds all values of t into s
+checks if s contains "123", returns true
+checks if t contains all values of s, returns false
+checks if the value "ace" is within s, returns false
+checks if the value "123" is within s, returns true
+s only holds on to what is within t, so it will remove all elements in s except for "123", returning true because removal happened
+checks if the value "123" is within s, returns true as it is the only value remaining
+t only holds on to what is within s, so it will remove all elements in t except for "123", returning false because nothing was removed
+checks if the value "123" is within t, returns true
+
+
+Programming 1 - 
+A.
+c.addAll(a);
+c.addAll(b);
+
+B.
+Set temp = new Set();
+temp.addAll(a);
+temp.retainAll(b);
+c.addAll(temp);
+
+C.
+Set c = new Set();
+c.addAll(a);
+c.addAll(b);
+c.removeAll(b);
+
+D.
+Set c = new Set();
+if(a.containsAll(b)){
+	c.addAll(a);
+}else{
+	c.addAll(b);
+}
+
+
+Programming 2 - 
+public String toString(){
+	String returnString = "[";
+	Iterator<Integer> it = test.iterator();
+	while(it.hasNext()){
+		returnString += it.next() + ",";
+	}
+	returnString = returnString.substring(0, returnString.length()-1) + "]";
+	return returnString;
+}
