@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
- * Heap.java
+ * FileSort.java
  * 
  * Class Invariant: only does Integers
  * 
